@@ -1,50 +1,36 @@
-com.example.bookreader.app-jetified-foundation-1.4.1-0 C:\Users\Matan\.gradle\caches\transforms-4\08162080a41313adebfe93e7b80e0c11\transformed\jetified-foundation-1.4.1\res
-com.example.bookreader.app-lifecycle-runtime-2.7.0-1 C:\Users\Matan\.gradle\caches\transforms-4\0925d91074278a6f69f70180eb8e9a27\transformed\lifecycle-runtime-2.7.0\res
-com.example.bookreader.app-jetified-material-icons-core-1.4.1-2 C:\Users\Matan\.gradle\caches\transforms-4\0ccf0fd290e712d2f771c2093ccb76c2\transformed\jetified-material-icons-core-1.4.1\res
-com.example.bookreader.app-jetified-ui-text-release-3 C:\Users\Matan\.gradle\caches\transforms-4\0fa6ae712506c8edda4410a7f371e0d4\transformed\jetified-ui-text-release\res
-com.example.bookreader.app-appcompat-1.6.1-4 C:\Users\Matan\.gradle\caches\transforms-4\103df599988d4da89a096268f4456e78\transformed\appcompat-1.6.1\res
-com.example.bookreader.app-jetified-core-ktx-1.12.0-5 C:\Users\Matan\.gradle\caches\transforms-4\1e551dc8ab2ba56bcec6aca7669a9e15\transformed\jetified-core-ktx-1.12.0\res
-com.example.bookreader.app-jetified-runtime-release-6 C:\Users\Matan\.gradle\caches\transforms-4\2a0d8a30e9b859ddc00bb9e1494e6dd9\transformed\jetified-runtime-release\res
-com.example.bookreader.app-jetified-emoji2-1.3.0-7 C:\Users\Matan\.gradle\caches\transforms-4\2a34cc24c988f37460925c2c1ad36a65\transformed\jetified-emoji2-1.3.0\res
-com.example.bookreader.app-lifecycle-viewmodel-2.7.0-8 C:\Users\Matan\.gradle\caches\transforms-4\2edf33e9cb160d808968a80dd18cb3ce\transformed\lifecycle-viewmodel-2.7.0\res
-com.example.bookreader.app-fragment-1.3.6-9 C:\Users\Matan\.gradle\caches\transforms-4\36d747a72503ffd257310090b22f27c9\transformed\fragment-1.3.6\res
-com.example.bookreader.app-lifecycle-livedata-2.7.0-10 C:\Users\Matan\.gradle\caches\transforms-4\384ca1492f8974593954f02aabc23131\transformed\lifecycle-livedata-2.7.0\res
-com.example.bookreader.app-jetified-animation-core-1.4.1-11 C:\Users\Matan\.gradle\caches\transforms-4\3be6447f1cc3292b31d8fc7644a68873\transformed\jetified-animation-core-1.4.1\res
-com.example.bookreader.app-jetified-savedstate-1.2.1-12 C:\Users\Matan\.gradle\caches\transforms-4\53091fb96376f5de656bdaffdb2e9a17\transformed\jetified-savedstate-1.2.1\res
-com.example.bookreader.app-jetified-lifecycle-viewmodel-ktx-2.7.0-13 C:\Users\Matan\.gradle\caches\transforms-4\5498509a56f79ea2f7a4601c80753f79\transformed\jetified-lifecycle-viewmodel-ktx-2.7.0\res
-com.example.bookreader.app-lifecycle-livedata-core-2.7.0-14 C:\Users\Matan\.gradle\caches\transforms-4\54c85f436599dba8a41d1ccc29d2769e\transformed\lifecycle-livedata-core-2.7.0\res
-com.example.bookreader.app-jetified-lifecycle-viewmodel-compose-2.7.0-15 C:\Users\Matan\.gradle\caches\transforms-4\566e1243ad28da62c938a81a1ef639fd\transformed\jetified-lifecycle-viewmodel-compose-2.7.0\res
-com.example.bookreader.app-jetified-savedstate-ktx-1.2.1-16 C:\Users\Matan\.gradle\caches\transforms-4\5ffadcc966f7e3547851220c00a01732\transformed\jetified-savedstate-ktx-1.2.1\res
-com.example.bookreader.app-jetified-animation-1.4.1-17 C:\Users\Matan\.gradle\caches\transforms-4\6007dca1b3310a6565c771106036fdf7\transformed\jetified-animation-1.4.1\res
-com.example.bookreader.app-jetified-ui-graphics-release-18 C:\Users\Matan\.gradle\caches\transforms-4\7123f946543f987ca0ebd373b2cd505e\transformed\jetified-ui-graphics-release\res
-com.example.bookreader.app-jetified-lifecycle-runtime-ktx-2.7.0-19 C:\Users\Matan\.gradle\caches\transforms-4\720b3d092e5b87f134e2ceb1b935c09a\transformed\jetified-lifecycle-runtime-ktx-2.7.0\res
-com.example.bookreader.app-jetified-emoji2-views-helper-1.3.0-20 C:\Users\Matan\.gradle\caches\transforms-4\7427384ca1ca78957acd69e721de0aa4\transformed\jetified-emoji2-views-helper-1.3.0\res
-com.example.bookreader.app-jetified-runtime-saveable-release-21 C:\Users\Matan\.gradle\caches\transforms-4\75a97541a7a245f530270a5260909ea7\transformed\jetified-runtime-saveable-release\res
-com.example.bookreader.app-jetified-ui-release-22 C:\Users\Matan\.gradle\caches\transforms-4\7c7c547eff7f67f38aedebefee35fe2b\transformed\jetified-ui-release\res
-com.example.bookreader.app-jetified-lifecycle-viewmodel-savedstate-2.7.0-23 C:\Users\Matan\.gradle\caches\transforms-4\81b46613fca385dc2cbbf47bc28dc351\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\res
-com.example.bookreader.app-core-1.12.0-24 C:\Users\Matan\.gradle\caches\transforms-4\8278dba50f4586a0c21c43c5fda17fdb\transformed\core-1.12.0\res
-com.example.bookreader.app-core-runtime-2.2.0-25 C:\Users\Matan\.gradle\caches\transforms-4\838278a63089efd45c9b3f5d7c7e242a\transformed\core-runtime-2.2.0\res
-com.example.bookreader.app-jetified-activity-1.8.0-26 C:\Users\Matan\.gradle\caches\transforms-4\86d2739d2063a113c4cba7b79365dda3\transformed\jetified-activity-1.8.0\res
-com.example.bookreader.app-jetified-material-ripple-1.4.1-27 C:\Users\Matan\.gradle\caches\transforms-4\87b9ff6d4c9e5eed306938de23a7786b\transformed\jetified-material-ripple-1.4.1\res
-com.example.bookreader.app-jetified-material3-1.1.2-28 C:\Users\Matan\.gradle\caches\transforms-4\895ac76b15e847a3cc9b0804bbe067f7\transformed\jetified-material3-1.1.2\res
-com.example.bookreader.app-jetified-lifecycle-runtime-compose-2.7.0-29 C:\Users\Matan\.gradle\caches\transforms-4\90d8f6b2e141cf6ca6375c4b33e36074\transformed\jetified-lifecycle-runtime-compose-2.7.0\res
-com.example.bookreader.app-jetified-lifecycle-livedata-core-ktx-2.7.0-30 C:\Users\Matan\.gradle\caches\transforms-4\9771a16e8585c22cf1a1afb34eaf3a68\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\res
-com.example.bookreader.app-jetified-customview-poolingcontainer-1.0.0-31 C:\Users\Matan\.gradle\caches\transforms-4\9aaeef6387852cc21f77d78f23f2a121\transformed\jetified-customview-poolingcontainer-1.0.0\res
-com.example.bookreader.app-jetified-startup-runtime-1.1.1-32 C:\Users\Matan\.gradle\caches\transforms-4\a1d6475431b58dc98d4268d04bf2f971\transformed\jetified-startup-runtime-1.1.1\res
-com.example.bookreader.app-jetified-ui-geometry-release-33 C:\Users\Matan\.gradle\caches\transforms-4\a20eba434b7b0ae52467c7fcdea59a3e\transformed\jetified-ui-geometry-release\res
-com.example.bookreader.app-jetified-foundation-layout-1.4.1-34 C:\Users\Matan\.gradle\caches\transforms-4\a37d5ef6f67394cc32d420bb7a90c72c\transformed\jetified-foundation-layout-1.4.1\res
-com.example.bookreader.app-jetified-ui-util-release-35 C:\Users\Matan\.gradle\caches\transforms-4\abb3d3f2c62321302575e89d764092d6\transformed\jetified-ui-util-release\res
-com.example.bookreader.app-jetified-lifecycle-process-2.7.0-36 C:\Users\Matan\.gradle\caches\transforms-4\b1323a617d6547c0c2c43653ab706d53\transformed\jetified-lifecycle-process-2.7.0\res
-com.example.bookreader.app-jetified-annotation-experimental-1.3.0-37 C:\Users\Matan\.gradle\caches\transforms-4\bb8cf323bb1fabdea918d641733791d9\transformed\jetified-annotation-experimental-1.3.0\res
-com.example.bookreader.app-jetified-ui-unit-release-38 C:\Users\Matan\.gradle\caches\transforms-4\bca3263933816d721df8a19533a804dd\transformed\jetified-ui-unit-release\res
-com.example.bookreader.app-jetified-activity-compose-1.8.0-39 C:\Users\Matan\.gradle\caches\transforms-4\c39fb82cb4c6a01b8572f5e679cd6e6b\transformed\jetified-activity-compose-1.8.0\res
-com.example.bookreader.app-jetified-appcompat-resources-1.6.1-40 C:\Users\Matan\.gradle\caches\transforms-4\c696e2fadb5ec69b0aff473dfe51b413\transformed\jetified-appcompat-resources-1.6.1\res
-com.example.bookreader.app-jetified-profileinstaller-1.3.0-41 C:\Users\Matan\.gradle\caches\transforms-4\cb223eeb0705495d70c1e70435a25215\transformed\jetified-profileinstaller-1.3.0\res
-com.example.bookreader.app-jetified-activity-ktx-1.8.0-42 C:\Users\Matan\.gradle\caches\transforms-4\e8e109bf26a28d486955b91f39884dd2\transformed\jetified-activity-ktx-1.8.0\res
-com.example.bookreader.app-pngs-43 C:\Users\Matan\Documents\Code\Book reader google drive\app\build\generated\res\pngs\debug
-com.example.bookreader.app-resValues-44 C:\Users\Matan\Documents\Code\Book reader google drive\app\build\generated\res\resValues\debug
-com.example.bookreader.app-packageDebugResources-45 C:\Users\Matan\Documents\Code\Book reader google drive\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.example.bookreader.app-packageDebugResources-46 C:\Users\Matan\Documents\Code\Book reader google drive\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.example.bookreader.app-debug-47 C:\Users\Matan\Documents\Code\Book reader google drive\app\build\intermediates\merged_res\debug\mergeDebugResources
-com.example.bookreader.app-debug-48 C:\Users\Matan\Documents\Code\Book reader google drive\app\src\debug\res
-com.example.bookreader.app-main-49 C:\Users\Matan\Documents\Code\Book reader google drive\app\src\main\res
+com.example.bookreader.app-lifecycle-viewmodel-2.7.0-0 C:\Users\Matan\.gradle\caches\transforms-4\29af0e05563184b3b865df87c2819b75\transformed\lifecycle-viewmodel-2.7.0\res
+com.example.bookreader.app-lifecycle-runtime-2.7.0-1 C:\Users\Matan\.gradle\caches\transforms-4\2d5020bb5e7265f83f580e14c5aa78b9\transformed\lifecycle-runtime-2.7.0\res
+com.example.bookreader.app-constraintlayout-2.1.4-2 C:\Users\Matan\.gradle\caches\transforms-4\2fdc36888cf5758cef574003bb4919f5\transformed\constraintlayout-2.1.4\res
+com.example.bookreader.app-jetified-lifecycle-process-2.7.0-3 C:\Users\Matan\.gradle\caches\transforms-4\3af210ad1bfcf60e60403523ee3d6eda\transformed\jetified-lifecycle-process-2.7.0\res
+com.example.bookreader.app-jetified-emoji2-views-helper-1.2.0-4 C:\Users\Matan\.gradle\caches\transforms-4\3ba04149c651f66d0a04c8654eee2dd9\transformed\jetified-emoji2-views-helper-1.2.0\res
+com.example.bookreader.app-jetified-profileinstaller-1.3.0-5 C:\Users\Matan\.gradle\caches\transforms-4\4c6ba32b5dd62e494818b1cdad964274\transformed\jetified-profileinstaller-1.3.0\res
+com.example.bookreader.app-transition-1.2.0-6 C:\Users\Matan\.gradle\caches\transforms-4\4fdf8438641a17a1661bf2e281af1064\transformed\transition-1.2.0\res
+com.example.bookreader.app-jetified-startup-runtime-1.1.1-7 C:\Users\Matan\.gradle\caches\transforms-4\6c04be862ca556a09f1934e83f6d78f5\transformed\jetified-startup-runtime-1.1.1\res
+com.example.bookreader.app-jetified-annotation-experimental-1.3.0-8 C:\Users\Matan\.gradle\caches\transforms-4\7437567d99166181c67587c3b86c371a\transformed\jetified-annotation-experimental-1.3.0\res
+com.example.bookreader.app-jetified-customview-poolingcontainer-1.0.0-9 C:\Users\Matan\.gradle\caches\transforms-4\7592329f5048ef554ac03257029b9824\transformed\jetified-customview-poolingcontainer-1.0.0\res
+com.example.bookreader.app-core-1.9.0-10 C:\Users\Matan\.gradle\caches\transforms-4\766f3bb77a9602d5b18720e866ffb26d\transformed\core-1.9.0\res
+com.example.bookreader.app-drawerlayout-1.1.1-11 C:\Users\Matan\.gradle\caches\transforms-4\774a6685f101753e34018dcda9510c9f\transformed\drawerlayout-1.1.1\res
+com.example.bookreader.app-core-runtime-2.2.0-12 C:\Users\Matan\.gradle\caches\transforms-4\78fb8ca92abaa623a871505d7da13773\transformed\core-runtime-2.2.0\res
+com.example.bookreader.app-coordinatorlayout-1.1.0-13 C:\Users\Matan\.gradle\caches\transforms-4\79f106eb89b81989cac2ef1928acf37b\transformed\coordinatorlayout-1.1.0\res
+com.example.bookreader.app-jetified-savedstate-1.2.1-14 C:\Users\Matan\.gradle\caches\transforms-4\871c6df2677bb4efdcf5bdad9c2f8cec\transformed\jetified-savedstate-1.2.1\res
+com.example.bookreader.app-jetified-activity-1.8.0-15 C:\Users\Matan\.gradle\caches\transforms-4\88859b5abb363028e6663aff7e4e466f\transformed\jetified-activity-1.8.0\res
+com.example.bookreader.app-jetified-core-ktx-1.9.0-16 C:\Users\Matan\.gradle\caches\transforms-4\93e7217285f5372169d8e124e578f565\transformed\jetified-core-ktx-1.9.0\res
+com.example.bookreader.app-jetified-emoji2-1.2.0-17 C:\Users\Matan\.gradle\caches\transforms-4\9f5040fc5db5a39c950314988d59a270\transformed\jetified-emoji2-1.2.0\res
+com.example.bookreader.app-recyclerview-1.3.2-18 C:\Users\Matan\.gradle\caches\transforms-4\a66c8488733c0078ede50feae015b9ca\transformed\recyclerview-1.3.2\res
+com.example.bookreader.app-cardview-1.0.0-19 C:\Users\Matan\.gradle\caches\transforms-4\af7847a3528c796c74d72f5a18f663b3\transformed\cardview-1.0.0\res
+com.example.bookreader.app-lifecycle-livedata-2.7.0-20 C:\Users\Matan\.gradle\caches\transforms-4\b3b31fc0fa45ccddca35abc73210b1b1\transformed\lifecycle-livedata-2.7.0\res
+com.example.bookreader.app-lifecycle-livedata-core-2.7.0-21 C:\Users\Matan\.gradle\caches\transforms-4\bec0d9c7cbfe1796a50449ba6c461890\transformed\lifecycle-livedata-core-2.7.0\res
+com.example.bookreader.app-fragment-1.3.6-22 C:\Users\Matan\.gradle\caches\transforms-4\c9d744be461ec2420d20ff6fb96ce254\transformed\fragment-1.3.6\res
+com.example.bookreader.app-material-1.11.0-23 C:\Users\Matan\.gradle\caches\transforms-4\cd613772c624989e6c4dc63fd6d2d609\transformed\material-1.11.0\res
+com.example.bookreader.app-jetified-lifecycle-livedata-core-ktx-2.7.0-24 C:\Users\Matan\.gradle\caches\transforms-4\d5c5777039318ce2262a877e8e4611ea\transformed\jetified-lifecycle-livedata-core-ktx-2.7.0\res
+com.example.bookreader.app-jetified-lifecycle-viewmodel-savedstate-2.7.0-25 C:\Users\Matan\.gradle\caches\transforms-4\d723b06f54019fe5967fa61e9c83e6fb\transformed\jetified-lifecycle-viewmodel-savedstate-2.7.0\res
+com.example.bookreader.app-jetified-appcompat-resources-1.6.1-26 C:\Users\Matan\.gradle\caches\transforms-4\da8bb7506417156512c68f00aa6bdebb\transformed\jetified-appcompat-resources-1.6.1\res
+com.example.bookreader.app-appcompat-1.6.1-27 C:\Users\Matan\.gradle\caches\transforms-4\dd9d6c8aa0b9b93cf8d27be101e4af4d\transformed\appcompat-1.6.1\res
+com.example.bookreader.app-jetified-viewpager2-1.1.0-beta02-28 C:\Users\Matan\.gradle\caches\transforms-4\fd5a543057253638cb75420784590b4a\transformed\jetified-viewpager2-1.1.0-beta02\res
+com.example.bookreader.app-pngs-29 C:\Users\Matan\Documents\Code\Book reader google drive\app\build\generated\res\pngs\debug
+com.example.bookreader.app-resValues-30 C:\Users\Matan\Documents\Code\Book reader google drive\app\build\generated\res\resValues\debug
+com.example.bookreader.app-packageDebugResources-31 C:\Users\Matan\Documents\Code\Book reader google drive\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.bookreader.app-packageDebugResources-32 C:\Users\Matan\Documents\Code\Book reader google drive\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.bookreader.app-debug-33 C:\Users\Matan\Documents\Code\Book reader google drive\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.example.bookreader.app-debug-34 C:\Users\Matan\Documents\Code\Book reader google drive\app\src\debug\res
+com.example.bookreader.app-main-35 C:\Users\Matan\Documents\Code\Book reader google drive\app\src\main\res

@@ -1,2 +1,15 @@
 R_DEF: Internal format may change without notice
 local
+id imageViewIcon
+id progressBar
+id progressBarReading
+id recyclerViewBreadcrumbs
+id recyclerViewItems
+id textViewBreadcrumb
+id textViewCollectionName
+id textViewError
+id textViewSubtitle
+id textViewTitle
+layout activity_main
+layout item_breadcrumb
+layout item_library
