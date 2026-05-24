@@ -1,25 +1,24 @@
 package com.example.bookreader;
 
-import android.os.Bundle;                           // Android Framework - contains key-value pairs for saving/restoring state
-import android.view.View;                           // Android Framework - base class for all UI widgets (used for visibility constants)
-import android.widget.ProgressBar;                  // Android Widget - spinning loading indicator
-import android.widget.TextView;                     // Android Widget - displays text
-import android.widget.Toast;                        // Android Widget - shows brief popup notification
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;    // Android Jetpack AppCompat - backwards-compatible Activity base class with Material Design support
-import androidx.lifecycle.ViewModelProvider;        // Android Jetpack - creates ViewModel instances
-import androidx.recyclerview.widget.LinearLayoutManager;  // Android Jetpack RecyclerView - arranges items in a vertical or horizontal list
-import androidx.recyclerview.widget.RecyclerView;   // Android Jetpack - efficient list view that recycles item views (replaces ListView)
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bookreader.library.ui.LibraryViewModel;       // ViewModel managing library state
-import com.example.bookreader.library.ui.state.LibraryUiState;   // Sealed class for UI states
-import com.example.bookreader.library.ui.LibraryAdapter;          // RecyclerView adapter for library items
-import com.example.bookreader.library.ui.BreadcrumbAdapter;       // RecyclerView adapter for breadcrumbs
+import com.example.bookreader.library.ui.BreadcrumbAdapter;
+import com.example.bookreader.library.ui.LibraryAdapter;
+import com.example.bookreader.library.ui.LibraryViewModel;
+import com.example.bookreader.library.ui.state.LibraryUiState;
 
 /**
  * Main entry point activity.
- * Sets up the ViewModel and displays the library with RecyclerViews.
- * Observes state changes and updates UI accordingly (show/hide spinner, list, or error).
+ * Observes the LibraryViewModel and updates the UI based on the current state.
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewItems.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewBreadcrumbs.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        // Initialize ViewModel with fake repository for now
+        // Initialize ViewModel with fake repository
         FakeLibraryRepository fakeRepo = new FakeLibraryRepository();
         LibraryViewModel.Factory factory = new LibraryViewModel.Factory(fakeRepo);
         viewModel = new ViewModelProvider(this, factory).get(LibraryViewModel.class);
@@ -72,13 +71,11 @@ public class MainActivity extends AppCompatActivity {
 
         // Observe state changes and update UI
         viewModel.getUiState().observe(this, uiState -> {
-            // Show loading spinner
             if (uiState instanceof LibraryUiState.Loading) {
                 progressBar.setVisibility(View.VISIBLE);
                 textViewError.setVisibility(View.GONE);
                 recyclerViewItems.setVisibility(View.GONE);
             } else if (uiState instanceof LibraryUiState.Success) {
-                // Show data successfully loaded
                 LibraryUiState.Success successState = (LibraryUiState.Success) uiState;
                 progressBar.setVisibility(View.GONE);
                 textViewError.setVisibility(View.GONE);
@@ -96,8 +93,6 @@ public class MainActivity extends AppCompatActivity {
                     breadcrumbAdapter.submitList(successState.getBreadcrumbs());
                 }
             } else if (uiState instanceof LibraryUiState.Error) {
-                // Show error message
-                // Show error message
                 LibraryUiState.Error errorState = (LibraryUiState.Error) uiState;
                 progressBar.setVisibility(View.GONE);
                 recyclerViewItems.setVisibility(View.GONE);

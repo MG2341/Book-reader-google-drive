@@ -1,14 +1,18 @@
 [
     {
-        "merged": "com.example.bookreader.app-debug-33:/layout_item_breadcrumb.xml.flat",
-        "source": "com.example.bookreader.app-main-35:/layout/item_breadcrumb.xml"
-    },
-    {
         "merged": "com.example.bookreader.app-debug-33:/layout_activity_main.xml.flat",
         "source": "com.example.bookreader.app-main-35:/layout/activity_main.xml"
     },
     {
-        "merged": "com.example.bookreader.app-debug-33:/layout_item_library.xml.flat",
-        "source": "com.example.bookreader.app-main-35:/layout/item_library.xml"
+        "merged": "C:\\Users\\Matan\\.gradle\\daemon\\8.6\\com.example.bookreader.app-debug-33:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Matan\\.gradle\\daemon\\8.6\\com.example.bookreader.app-main-35:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Matan\\.gradle\\daemon\\8.6\\com.example.bookreader.app-debug-33:\\layout_item_library.xml.flat",
+        "source": "C:\\Users\\Matan\\.gradle\\daemon\\8.6\\com.example.bookreader.app-main-35:\\layout\\item_library.xml"
+    },
+    {
+        "merged": "C:\\Users\\Matan\\.gradle\\daemon\\8.6\\com.example.bookreader.app-debug-33:\\layout_item_breadcrumb.xml.flat",
+        "source": "C:\\Users\\Matan\\.gradle\\daemon\\8.6\\com.example.bookreader.app-main-35:\\layout\\item_breadcrumb.xml"
     }
 ]

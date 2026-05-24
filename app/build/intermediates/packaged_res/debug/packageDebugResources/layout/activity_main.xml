@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FAFAFA">
+    android:background="#adbd9e">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewBreadcrumbs"
@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="8dp"
-        android:background="#EEEEEE"
+        android:background="#515f79"
         android:visibility="gone" />
 
     <TextView
@@ -21,7 +21,7 @@
         android:padding="16dp"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="#333333" />
+        android:textColor="#242424" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -48,7 +48,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:padding="16dp"
-            android:textColor="#D32F2F"
+            android:textColor="#1d1d1d"
             android:textSize="16sp"
             android:visibility="gone" />
 
