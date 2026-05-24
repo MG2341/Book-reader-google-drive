@@ -29,6 +29,7 @@ public class FakeLibraryRepository implements LibraryRepository {
             return Arrays.asList(
                     new LibraryItem("c1", "Textbooks", "application/vnd.google-apps.folder", null, null, null),
                     new LibraryItem("c2", "Currently Reading", "application/vnd.google-apps.folder", null, null, null),
+                    new LibraryItem("c3", "test", "application/vnd.google-apps.folder", null, null, null),
                     new LibraryItem("d1", "Kotlin in Depth", "application/pdf", null, 34, Instant.now().minusSeconds(3600)),
                     new LibraryItem("d2", "Clean Code", "application/pdf", null, 67, Instant.now().minusSeconds(86400))
             );
