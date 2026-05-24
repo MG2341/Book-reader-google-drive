@@ -7,7 +7,7 @@ import com.example.bookreader.library.ui.state.Breadcrumb;              // Navig
 
 import java.util.ArrayList;                                              // Resizable array implementation (builds dynamic lists)
 import java.util.List;                                                   // Core Collections interface - ordered collection
-
+import java.io.File;
 /**
  * Production implementation of LibraryRepository that fetches real library data from Google Drive.
  *
@@ -94,9 +94,9 @@ public class GoogleDriveLibraryRepository implements LibraryRepository {
     }
 
     @Override
-    public String fetchDocumentContent(String fileId) {
+    public File fetchDocumentContent(String fileId) {
         // TODO: Implement actual file download from Google Drive API
         // Currently returns placeholder message
-        return "Content loading not implemented for Google Drive repository.";
+        return new File("Content loading not implemented for Google Drive repository.");
     }
 }

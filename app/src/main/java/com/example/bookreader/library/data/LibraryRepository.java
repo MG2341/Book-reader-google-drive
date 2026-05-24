@@ -3,7 +3,7 @@ package com.example.bookreader.library.data;
 import com.example.bookreader.library.data.model.LibraryItem;  // Domain model representing a library item (file/folder)
 import com.example.bookreader.library.ui.state.Breadcrumb;     // UI state model for navigation breadcrumbs
 import java.util.List;                                          // Core Java Collections - holds ordered collections of items
-import java.io.File
+import java.io.File;
 
 /**
  * Data source abstraction for library contents and metadata.

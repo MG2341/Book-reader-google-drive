@@ -4,11 +4,15 @@ import com.example.bookreader.library.data.LibraryRepository;       // Interface
 import com.example.bookreader.library.data.model.LibraryItem;       // Domain model for a library item
 import com.example.bookreader.library.ui.state.Breadcrumb;          // Navigation breadcrumb model
 
+import java.io.File;
 import java.time.Instant;                                            // Java 8 Date/Time API - represents a moment in time (used for lastReadAt timestamps)
 import java.util.ArrayList;                                          // Resizable array implementation (used to build dynamic lists)
 import java.util.Arrays;                                             // Utility class for array operations (provides Arrays.asList() for creating fixed-size lists)
 import java.util.List;                                               // Core Collections interface - represents an ordered collection
-
+import android.content.Context;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /**
  * Test/Mock implementation of LibraryRepository with hardcoded sample library data.
  *
@@ -38,6 +42,11 @@ import java.util.List;                                               // Core Col
  * - Thread.sleep() delays simulate real network latency (~100-300ms)
  */
 public class FakeLibraryRepository implements LibraryRepository {
+    private final Context context;
+
+    public FakeLibraryRepository(Context context) {
+        this.context = context;
+    }
 
     @Override
     public List<LibraryItem> fetchFolderContents(String collectionId) {
@@ -143,8 +152,7 @@ public class FakeLibraryRepository implements LibraryRepository {
         
         // 3. Return the real PDF for your books
         if ("d1".equals(fileId) || "d2".equals(fileId)) {
-            return copyAssetToCache("C:\\Users\\Matan\\Documents\\Code\\
-                        Book reader google drive\\app\\src\\main\\assets\\Introduction_to_Algorithms_Third_Edition_(2009).pdf");
+            return copyAssetToCache("C:\\Users\\Matan\\Documents\\Code\\Book reader google drive\\app\\src\\main\\assets\\Introduction_to_Algorithms_Third_Edition_(2009).pdf");
         } else {
             return null;
         }

@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewBreadcrumbs.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         // Initialize ViewModel with fake repository
-        FakeLibraryRepository fakeRepo = new FakeLibraryRepository();
+        FakeLibraryRepository fakeRepo = new FakeLibraryRepository(this);
         LibraryViewModel.Factory factory = new LibraryViewModel.Factory(fakeRepo);
         viewModel = new ViewModelProvider(this, factory).get(LibraryViewModel.class);
 

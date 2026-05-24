@@ -1,5 +1,7 @@
 package com.example.bookreader.library.data.remote;
 
+import java.time.Instant;
+
 /**
  * Data Transfer Object (DTO) representing a file/folder from Google Drive API response.
  *
