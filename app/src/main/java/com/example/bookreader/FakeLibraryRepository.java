@@ -134,33 +134,45 @@ public class FakeLibraryRepository implements LibraryRepository {
     }
 
     @Override
-    public String fetchDocumentContent(String fileId) {
-        // Simulate network delay for document content fetch (~200ms)
-        // In real implementation, this would download file from Google Drive
+    public File fetchDocumentContent(String fileId) {
         try {
-            Thread.sleep(200);
+            Thread.sleep(200); // Simulate download delay
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        // Return placeholder content for specific test documents
-        // Content format: Title + chapters/sections to simulate real document
-        // Each document has different content to test reading progress with various texts
-        if ("d1".equals(fileId)) {
-            // Kotlin in Depth content - programming technical content
-            return "Kotlin in Depth\n\nChapter 1 — Getting started with Kotlin.\nKotlin is a modern JVM language that combines object-oriented and functional features.\n\n(This is placeholder content for the fake repository.)";
-        } else if ("d2".equals(fileId)) {
-            // Clean Code content - software engineering best practices
-            return "Clean Code\n\nChapter 3 — Functions.\nGood functions are small, do one thing, and have descriptive names.\n\n(This is placeholder content for the fake repository.)";
-        } else if ("d3".equals(fileId)) {
-            // Algorithm Design Manual content - computer science algorithms
-            return "The Algorithm Design Manual\n\nChapter 2 — Algorithmic Techniques.\nAlgorithms are recipes to solve computational problems efficiently.\n\n(This is placeholder content for the fake repository.)";
-        } else if ("d4".equals(fileId)) {
-            // Modern Android Development content - Android UI framework
-            return "Modern Android Development\n\nChapter 5 — Jetpack Compose Basics.\nCompose lets you build declarative UI with Kotlin.\n\n(This is placeholder content for the fake repository.)";
+        
+        // 3. Return the real PDF for your books
+        if ("d1".equals(fileId) || "d2".equals(fileId)) {
+            return copyAssetToCache("C:\\Users\\Matan\\Documents\\Code\\
+                        Book reader google drive\\app\\src\\main\\assets\\Introduction_to_Algorithms_Third_Edition_(2009).pdf");
         } else {
-            // Unknown document ID: return generic "not found" message
-            return "Content not available for this document.";
+            return null;
+        }
+    }
+
+    // 4. Helper method: Copies the PDF from assets into the phone's physical cache
+    private File copyAssetToCache(String fileName) {
+        File cachedFile = new File(context.getCacheDir(), fileName);
+        
+        // If we already copied it previously, just return it to save time
+        if (cachedFile.exists()) {
+            return cachedFile;
+        }
+
+        // Otherwise, copy the file byte-by-byte
+        try (InputStream inputStream = context.getAssets().open(fileName);
+             FileOutputStream outputStream = new FileOutputStream(cachedFile)) {
+             
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = inputStream.read(buffer)) > 0) {
+                outputStream.write(buffer, 0, length);
+            }
+            return cachedFile;
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }
