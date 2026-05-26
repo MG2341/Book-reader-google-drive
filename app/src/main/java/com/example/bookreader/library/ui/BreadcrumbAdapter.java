@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;    // Android Jetpack - effici
 import com.example.bookreader.R;                                  // Android Resource binding - generated class with resource references
 import com.example.bookreader.library.ui.state.Breadcrumb;        // Navigation breadcrumb model
 
-import java.util.ArrayList;                          // Java Collections - resizable array implementation (holds breadcrumb items)
 import java.util.List;                               // Java Collections - interface for ordered collections
 
 /**
@@ -19,9 +18,8 @@ import java.util.List;                               // Java Collections - inter
  * Shows the folder hierarchy path with ">"-separated items.
  * Allows clicking any breadcrumb to navigate back to that folder.
  */
-public class BreadcrumbAdapter extends RecyclerView.Adapter<BreadcrumbAdapter.ViewHolder> {
+public class BreadcrumbAdapter extends BaseListAdapter<Breadcrumb, BreadcrumbAdapter.ViewHolder> {
 
-    private List<Breadcrumb> breadcrumbs = new ArrayList<>();
     private final OnItemClickListener listener;  // Callback for breadcrumb clicks
 
     public interface OnItemClickListener {
@@ -30,12 +28,6 @@ public class BreadcrumbAdapter extends RecyclerView.Adapter<BreadcrumbAdapter.Vi
 
     public BreadcrumbAdapter(OnItemClickListener listener) {
         this.listener = listener;
-    }
-
-    /** Update the breadcrumb list and refresh the view */
-    public void submitList(List<Breadcrumb> breadcrumbs) {
-        this.breadcrumbs = breadcrumbs;
-        notifyDataSetChanged();
     }
 
     @NonNull
@@ -47,13 +39,8 @@ public class BreadcrumbAdapter extends RecyclerView.Adapter<BreadcrumbAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Breadcrumb crumb = breadcrumbs.get(position);
-        holder.bind(crumb, listener, position != breadcrumbs.size() - 1);
-    }
-
-    @Override
-    public int getItemCount() {
-        return breadcrumbs.size();
+        Breadcrumb crumb = items.get(position);
+        holder.bind(crumb, listener, position != items.size() - 1);
     }
 
     /** ViewHolder for a single breadcrumb item */

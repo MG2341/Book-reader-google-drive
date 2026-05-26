@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;    // Android Jetpack - effici
 import com.example.bookreader.R;                             // Android Resource binding - generated class with references to layout/drawable resources
 import com.example.bookreader.library.data.model.LibraryItem;  // Domain model for a library item
 
-import java.util.ArrayList;                          // Java Collections - resizable array implementation (holds library items)
 import java.util.List;                               // Java Collections - interface for ordered collections
 
 /**
@@ -21,9 +20,8 @@ import java.util.List;                               // Java Collections - inter
  * Shows different UI based on item type: folder icon for collections, document icon for files.
  * Displays reading progress for documents.
  */
-public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ViewHolder> {
+public class LibraryAdapter extends BaseListAdapter<LibraryItem, LibraryAdapter.ViewHolder> {
 
-    private List<LibraryItem> items = new ArrayList<>();
     private final OnItemClickListener listener;  // Callback for item clicks
 
     public interface OnItemClickListener {
@@ -32,16 +30,6 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ViewHold
 
     public LibraryAdapter(OnItemClickListener listener) {
         this.listener = listener;
-    }
-
-    /** Update the list and refresh the view */
-    public void submitList(List<LibraryItem> newItems) {
-        this.items = newItems;
-        notifyDataSetDataSetChanged();
-    }
-
-    private void notifyDataSetDataSetChanged() {
-        notifyDataSetChanged();
     }
 
     @NonNull
@@ -55,11 +43,6 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         LibraryItem item = items.get(position);
         holder.bind(item, listener);
-    }
-
-    @Override
-    public int getItemCount() {
-        return items.size();
     }
 
     /** ViewHolder for a single library item row */
