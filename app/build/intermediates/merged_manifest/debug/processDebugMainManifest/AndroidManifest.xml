@@ -32,6 +32,11 @@
             </intent-filter>
         </activity>
 
+        <!-- PDF Viewer Activity for displaying PDF documents -->
+        <activity
+            android:name="com.example.bookreader.PdfViewerActivity"
+            android:exported="false" />
+
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="com.example.bookreader.androidx-startup"

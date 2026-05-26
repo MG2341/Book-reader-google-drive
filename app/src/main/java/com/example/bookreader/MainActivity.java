@@ -142,7 +142,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-<<<<<<< HEAD
     /**
      * Opens a document (PDF) in the PDF viewer activity.
      *
@@ -182,7 +181,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         });
-=======
+    }
+
     /** Helper method to update visibility of main UI elements based on current state */
     private void updateStateVisibility(String state) {
         boolean isLoading = state.equals("loading");
@@ -192,6 +192,5 @@ public class MainActivity extends AppCompatActivity {
         progressBar.setVisibility(isLoading ? View.VISIBLE : View.GONE);
         textViewError.setVisibility(isError ? View.VISIBLE : View.GONE);
         recyclerViewItems.setVisibility(isSuccess ? View.VISIBLE : View.GONE);
->>>>>>> 419c0822e437d524397f8c649ddb9a65fce7cd80
     }
 }

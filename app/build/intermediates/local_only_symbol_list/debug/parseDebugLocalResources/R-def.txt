@@ -1,6 +1,7 @@
 R_DEF: Internal format may change without notice
 local
 id imageViewIcon
+id pdfView
 id progressBar
 id progressBarReading
 id recyclerViewBreadcrumbs
@@ -11,5 +12,6 @@ id textViewError
 id textViewSubtitle
 id textViewTitle
 layout activity_main
+layout activity_pdf_viewer
 layout item_breadcrumb
 layout item_library
