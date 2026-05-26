@@ -40,40 +40,19 @@ import java.util.concurrent.Executors;
  */
 public class MainActivity extends AppCompatActivity {
 
-    // ViewModel: Holds and manages library browsing state (Loading/Success/Error)
-    // Survives configuration changes (rotation, etc.) via Android lifecycle awareness
+    // Enum for type-safe UI state visibility management
+    private enum UiStateVisibility {
+        LOADING, SUCCESS, ERROR
+    }
+
     private LibraryViewModel viewModel;
-
-    // LibraryAdapter: Renders the list of folders and documents (files)
-    // Listens for item clicks and forwards them to viewModel.onCollectionClicked()
     private LibraryAdapter libraryAdapter;
-
-    // BreadcrumbAdapter: Renders the navigation path (e.g., "My Library > Textbooks > Chapter 1")
-    // Listens for breadcrumb clicks to navigate back in folder hierarchy
     private BreadcrumbAdapter breadcrumbAdapter;
-
-    // Main list RecyclerView: Displays library items (files and folders) in vertical scroll
-    // Only visible during Success state; hidden during Loading/Error
     private RecyclerView recyclerViewItems;
-
-    // Breadcrumb RecyclerView: Displays folder navigation path in horizontal scroll
-    // Only visible if breadcrumbs list is non-empty in Success state; hidden during Loading/Error/root
     private RecyclerView recyclerViewBreadcrumbs;
-
-    // Progress indicator: Spinning wheel shown during Loading state
-    // Hidden during Success/Error states (view visibility toggled in observer callback)
     private ProgressBar progressBar;
-
-    // Error message TextView: Displays error description when data fetch fails
-    // Only visible during Error state; hidden during Loading/Success
     private TextView textViewError;
-
-    // Folder name TextView: Displays the current collection/folder name (e.g., "My Library", "Textbooks")
-    // Updated whenever user navigates to a different folder (Success state)
     private TextView textViewCollectionName;
-
-    // Repository reference: Stored to fetch document content when user clicks a PDF
-    // Used in background thread to load PDF files from assets
     private LibraryRepository repository;
 
     @Override
@@ -116,78 +95,69 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewBreadcrumbs.setAdapter(breadcrumbAdapter);
 
         // Observe state changes and update UI
-        viewModel.getUiState().observe(this, uiState -> {
-            if (uiState instanceof LibraryUiState.Loading) {
-                updateStateVisibility("loading");
-            } else if (uiState instanceof LibraryUiState.Success) {
-                LibraryUiState.Success successState = (LibraryUiState.Success) uiState;
-                updateStateVisibility("success");
-
-                // Update list and folder name
-                libraryAdapter.submitList(successState.getItems());
-                textViewCollectionName.setText(successState.getCurrentCollectionName());
-
-                // Show/hide breadcrumbs based on presence
-                if (successState.getBreadcrumbs().isEmpty()) {
-                    recyclerViewBreadcrumbs.setVisibility(View.GONE);
-                } else {
-                    recyclerViewBreadcrumbs.setVisibility(View.VISIBLE);
-                    breadcrumbAdapter.submitList(successState.getBreadcrumbs());
-                }
-            } else if (uiState instanceof LibraryUiState.Error) {
-                LibraryUiState.Error errorState = (LibraryUiState.Error) uiState;
-                updateStateVisibility("error");
-                textViewError.setText(errorState.getMessage());
-            }
-        });
+        observeLibraryState();
     }
 
-    /**
-     * Opens a document (PDF) in the PDF viewer activity.
-     *
-     * Flow:
-     * 1. Show loading toast to indicate document is being prepared
-     * 2. Fetch document file from repository on background thread (I/O operation)
-     * 3. Once file is ready, launch PdfViewerActivity with file path
-     * 4. Show error toast if document fetch fails
-     *
-     * @param item LibraryItem representing the document to open
-     */
+    /** Observe ViewModel state changes and update UI accordingly */
+    private void observeLibraryState() {
+        viewModel.getUiState().observe(this, this::handleUiStateChange);
+    }
+
+    /** Handle UI state changes from ViewModel */
+    private void handleUiStateChange(LibraryUiState uiState) {
+        if (uiState instanceof LibraryUiState.Loading) {
+            updateStateVisibility(UiStateVisibility.LOADING);
+        } else if (uiState instanceof LibraryUiState.Success) {
+            handleSuccessState((LibraryUiState.Success) uiState);
+        } else if (uiState instanceof LibraryUiState.Error) {
+            handleErrorState((LibraryUiState.Error) uiState);
+        }
+    }
+
+    /** Handle success state: update lists and folder name */
+    private void handleSuccessState(LibraryUiState.Success successState) {
+        updateStateVisibility(UiStateVisibility.SUCCESS);
+        libraryAdapter.submitList(successState.getItems());
+        textViewCollectionName.setText(successState.getCurrentCollectionName());
+
+        if (successState.getBreadcrumbs().isEmpty()) {
+            recyclerViewBreadcrumbs.setVisibility(View.GONE);
+        } else {
+            recyclerViewBreadcrumbs.setVisibility(View.VISIBLE);
+            breadcrumbAdapter.submitList(successState.getBreadcrumbs());
+        }
+    }
+
+    /** Handle error state: display error message */
+    private void handleErrorState(LibraryUiState.Error errorState) {
+        updateStateVisibility(UiStateVisibility.ERROR);
+        textViewError.setText(errorState.getMessage());
+    }
+
+    /** Open a document (PDF) in the PDF viewer activity */
     private void openDocument(com.example.bookreader.library.data.model.LibraryItem item) {
-        // Show toast indicating document is being prepared
         Toast.makeText(this, "Opening: " + item.getTitle(), Toast.LENGTH_SHORT).show();
 
-        // Fetch document on background thread (file I/O should not block UI)
-        // ExecutorService provides a thread pool for background tasks
         Executors.newSingleThreadExecutor().execute(() -> {
-            // Call repository to fetch the document file
-            // For PDFs in assets, this copies the file from assets to cache directory
             File documentFile = repository.fetchDocumentContent(item.getId());
-
-            // After file is ready, launch PDF viewer on main thread
-            // (All UI operations must happen on main thread)
             runOnUiThread(() -> {
                 if (documentFile != null && documentFile.exists()) {
-                    // Create intent to start PDF viewer activity
                     Intent intent = new Intent(MainActivity.this, PdfViewerActivity.class);
-                    // Pass file path and document title as intent extras
                     intent.putExtra(PdfViewerActivity.EXTRA_PDF_PATH, documentFile.getAbsolutePath());
                     intent.putExtra(PdfViewerActivity.EXTRA_PDF_TITLE, item.getTitle());
-                    // Start the PDF viewer activity
                     startActivity(intent);
                 } else {
-                    // Show error if file could not be loaded
                     Toast.makeText(MainActivity.this, "Failed to load document", Toast.LENGTH_SHORT).show();
                 }
             });
         });
     }
 
-    /** Helper method to update visibility of main UI elements based on current state */
-    private void updateStateVisibility(String state) {
-        boolean isLoading = state.equals("loading");
-        boolean isError = state.equals("error");
-        boolean isSuccess = state.equals("success");
+    /** Update visibility of UI elements based on current state */
+    private void updateStateVisibility(UiStateVisibility state) {
+        boolean isLoading = state == UiStateVisibility.LOADING;
+        boolean isError = state == UiStateVisibility.ERROR;
+        boolean isSuccess = state == UiStateVisibility.SUCCESS;
 
         progressBar.setVisibility(isLoading ? View.VISIBLE : View.GONE);
         textViewError.setVisibility(isError ? View.VISIBLE : View.GONE);
