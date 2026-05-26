@@ -22,13 +22,9 @@ import java.util.List;                               // Java Collections - inter
  */
 public class LibraryAdapter extends BaseListAdapter<LibraryItem, LibraryAdapter.ViewHolder> {
 
-    private final OnItemClickListener listener;  // Callback for item clicks
+    private final OnItemClickListener<LibraryItem> listener;  // Callback for item clicks
 
-    public interface OnItemClickListener {
-        void onItemClick(LibraryItem item);
-    }
-
-    public LibraryAdapter(OnItemClickListener listener) {
+    public LibraryAdapter(OnItemClickListener<LibraryItem> listener) {
         this.listener = listener;
     }
 
@@ -61,7 +57,7 @@ public class LibraryAdapter extends BaseListAdapter<LibraryItem, LibraryAdapter.
         }
 
         /** Bind item data to views; show different UI based on item type */
-        public void bind(LibraryItem item, OnItemClickListener listener) {
+        public void bind(LibraryItem item, BaseListAdapter.OnItemClickListener<LibraryItem> listener) {
             textViewTitle.setText(item.getTitle());
 
             if (item.isCollection()) {

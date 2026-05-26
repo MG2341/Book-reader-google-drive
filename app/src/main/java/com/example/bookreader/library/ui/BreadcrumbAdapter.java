@@ -20,13 +20,9 @@ import java.util.List;                               // Java Collections - inter
  */
 public class BreadcrumbAdapter extends BaseListAdapter<Breadcrumb, BreadcrumbAdapter.ViewHolder> {
 
-    private final OnItemClickListener listener;  // Callback for breadcrumb clicks
+    private final OnItemClickListener<Breadcrumb> listener;  // Callback for breadcrumb clicks
 
-    public interface OnItemClickListener {
-        void onItemClick(Breadcrumb crumb);
-    }
-
-    public BreadcrumbAdapter(OnItemClickListener listener) {
+    public BreadcrumbAdapter(OnItemClickListener<Breadcrumb> listener) {
         this.listener = listener;
     }
 
@@ -52,8 +48,8 @@ public class BreadcrumbAdapter extends BaseListAdapter<Breadcrumb, BreadcrumbAda
             textViewBreadcrumb = itemView.findViewById(R.id.textViewBreadcrumb);
         }
 
-        /** Bind breadcrumb data; append ">"-separator if not the last item */
-        public void bind(Breadcrumb crumb, OnItemClickListener listener, boolean hasNext) {
+        /** Bind breadcrumb data; append \">\"-separator if not the last item */
+        public void bind(Breadcrumb crumb, BaseListAdapter.OnItemClickListener<Breadcrumb> listener, boolean hasNext) {
             String text = crumb.getLabel() + (hasNext ? " >" : "");
             textViewBreadcrumb.setText(text);
             itemView.setOnClickListener(v -> listener.onItemClick(crumb));

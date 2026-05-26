@@ -18,6 +18,11 @@ public abstract class BaseListAdapter<T, VH extends RecyclerView.ViewHolder>
 
     protected List<T> items = new ArrayList<>();
 
+    /** Generic listener interface for item clicks */
+    public interface OnItemClickListener<T> {
+        void onItemClick(T item);
+    }
+
     /** Update the list and refresh the view */
     public void submitList(List<T> newItems) {
         this.items = newItems != null ? newItems : new ArrayList<>();

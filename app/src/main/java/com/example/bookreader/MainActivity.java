@@ -108,14 +108,10 @@ public class MainActivity extends AppCompatActivity {
         // Observe state changes and update UI
         viewModel.getUiState().observe(this, uiState -> {
             if (uiState instanceof LibraryUiState.Loading) {
-                progressBar.setVisibility(View.VISIBLE);
-                textViewError.setVisibility(View.GONE);
-                recyclerViewItems.setVisibility(View.GONE);
+                updateStateVisibility("loading");
             } else if (uiState instanceof LibraryUiState.Success) {
                 LibraryUiState.Success successState = (LibraryUiState.Success) uiState;
-                progressBar.setVisibility(View.GONE);
-                textViewError.setVisibility(View.GONE);
-                recyclerViewItems.setVisibility(View.VISIBLE);
+                updateStateVisibility("success");
 
                 // Update list and folder name
                 libraryAdapter.submitList(successState.getItems());
@@ -130,11 +126,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             } else if (uiState instanceof LibraryUiState.Error) {
                 LibraryUiState.Error errorState = (LibraryUiState.Error) uiState;
-                progressBar.setVisibility(View.GONE);
-                recyclerViewItems.setVisibility(View.GONE);
-                textViewError.setVisibility(View.VISIBLE);
+                updateStateVisibility("error");
                 textViewError.setText(errorState.getMessage());
             }
         });
+    }
+
+    /** Helper method to update visibility of main UI elements based on current state */
+    private void updateStateVisibility(String state) {
+        boolean isLoading = state.equals("loading");
+        boolean isError = state.equals("error");
+        boolean isSuccess = state.equals("success");
+
+        progressBar.setVisibility(isLoading ? View.VISIBLE : View.GONE);
+        textViewError.setVisibility(isError ? View.VISIBLE : View.GONE);
+        recyclerViewItems.setVisibility(isSuccess ? View.VISIBLE : View.GONE);
     }
 }
