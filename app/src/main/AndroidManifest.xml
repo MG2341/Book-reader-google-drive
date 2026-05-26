@@ -15,6 +15,11 @@
             </intent-filter>
         </activity>
 
+        <!-- PDF Viewer Activity for displaying PDF documents -->
+        <activity
+            android:name=".PdfViewerActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

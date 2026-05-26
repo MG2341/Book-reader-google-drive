@@ -150,35 +150,50 @@ public class FakeLibraryRepository implements LibraryRepository {
             e.printStackTrace();
         }
         
-        // 3. Return the real PDF for your books
+        // Return the PDF files from assets based on document ID
         if ("d1".equals(fileId) || "d2".equals(fileId)) {
-            return copyAssetToCache("C:\\Users\\Matan\\Documents\\Code\\Book reader google drive\\app\\src\\main\\assets\\Introduction_to_Algorithms_Third_Edition_(2009).pdf");
+            // Return Introduction to Algorithms PDF
+            return copyAssetToCache("Introduction_to_Algorithms_Third_Edition_(2009).pdf");
+        } else if ("d3".equals(fileId)) {
+            // Return The Pragmatic Programmer PDF
+            return copyAssetToCache("The Pragmatic Programmer, From Journeyman To Master.pdf");
+        } else if ("d4".equals(fileId)) {
+            // d4 is an EPUB format in the test data, but we have PDFs available
+            // Map it to one of the PDFs for now
+            return copyAssetToCache("Introduction_to_Algorithms_Third_Edition_(2009).pdf");
         } else {
             return null;
         }
     }
 
-    // 4. Helper method: Copies the PDF from assets into the phone's physical cache
+    // Helper method: Copies the PDF from assets into the phone's cache directory
+    // Purpose: Assets are read-only, but PDF viewer needs a writable file path
+    // Caches the file so subsequent reads don't require copying again
     private File copyAssetToCache(String fileName) {
+        // Create a cache file with the same name as the asset
+        // Cache directory is cleared by Android periodically, which is fine for transient copies
         File cachedFile = new File(context.getCacheDir(), fileName);
         
-        // If we already copied it previously, just return it to save time
+        // If already copied, return immediately (avoid redundant I/O)
         if (cachedFile.exists()) {
             return cachedFile;
         }
 
-        // Otherwise, copy the file byte-by-byte
+        // Copy file from assets to cache directory byte-by-byte
         try (InputStream inputStream = context.getAssets().open(fileName);
              FileOutputStream outputStream = new FileOutputStream(cachedFile)) {
              
-            byte[] buffer = new byte[1024];
+            byte[] buffer = new byte[1024];  // Buffer size for efficient reading (1KB chunks)
             int length;
+            
+            // Read and write in chunks until entire file is copied
             while ((length = inputStream.read(buffer)) > 0) {
                 outputStream.write(buffer, 0, length);
             }
             return cachedFile;
             
         } catch (IOException e) {
+            // Log error and return null if copy fails
             e.printStackTrace();
             return null;
         }

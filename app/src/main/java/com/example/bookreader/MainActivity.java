@@ -1,5 +1,6 @@
 package com.example.bookreader;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -11,10 +12,14 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bookreader.library.data.LibraryRepository;
 import com.example.bookreader.library.ui.BreadcrumbAdapter;
 import com.example.bookreader.library.ui.LibraryAdapter;
 import com.example.bookreader.library.ui.LibraryViewModel;
 import com.example.bookreader.library.ui.state.LibraryUiState;
+
+import java.io.File;
+import java.util.concurrent.Executors;
 
 /**
  * Main entry point activity for the Book Reader application.
@@ -67,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
     // Updated whenever user navigates to a different folder (Success state)
     private TextView textViewCollectionName;
 
+    // Repository reference: Stored to fetch document content when user clicks a PDF
+    // Used in background thread to load PDF files from assets
+    private LibraryRepository repository;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,15 +94,16 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize ViewModel with fake repository
         FakeLibraryRepository fakeRepo = new FakeLibraryRepository(this);
+        this.repository = fakeRepo;  // Store repository reference for document fetching
         LibraryViewModel.Factory factory = new LibraryViewModel.Factory(fakeRepo);
         viewModel = new ViewModelProvider(this, factory).get(LibraryViewModel.class);
 
         // Create adapters with item click listeners
         libraryAdapter = new LibraryAdapter(item -> {
             viewModel.onCollectionClicked(item);
+            // When user clicks a document, fetch and open it in PDF viewer
             if (item.isDocument()) {
-                Toast.makeText(this, "Open document: " + item.getId(), Toast.LENGTH_SHORT).show();
-//
+                openDocument(item);
             }
         });
 
@@ -135,6 +145,47 @@ public class MainActivity extends AppCompatActivity {
                 textViewError.setVisibility(View.VISIBLE);
                 textViewError.setText(errorState.getMessage());
             }
+        });
+    }
+
+    /**
+     * Opens a document (PDF) in the PDF viewer activity.
+     *
+     * Flow:
+     * 1. Show loading toast to indicate document is being prepared
+     * 2. Fetch document file from repository on background thread (I/O operation)
+     * 3. Once file is ready, launch PdfViewerActivity with file path
+     * 4. Show error toast if document fetch fails
+     *
+     * @param item LibraryItem representing the document to open
+     */
+    private void openDocument(com.example.bookreader.library.data.model.LibraryItem item) {
+        // Show toast indicating document is being prepared
+        Toast.makeText(this, "Opening: " + item.getTitle(), Toast.LENGTH_SHORT).show();
+
+        // Fetch document on background thread (file I/O should not block UI)
+        // ExecutorService provides a thread pool for background tasks
+        Executors.newSingleThreadExecutor().execute(() -> {
+            // Call repository to fetch the document file
+            // For PDFs in assets, this copies the file from assets to cache directory
+            File documentFile = repository.fetchDocumentContent(item.getId());
+
+            // After file is ready, launch PDF viewer on main thread
+            // (All UI operations must happen on main thread)
+            runOnUiThread(() -> {
+                if (documentFile != null && documentFile.exists()) {
+                    // Create intent to start PDF viewer activity
+                    Intent intent = new Intent(MainActivity.this, PdfViewerActivity.class);
+                    // Pass file path and document title as intent extras
+                    intent.putExtra(PdfViewerActivity.EXTRA_PDF_PATH, documentFile.getAbsolutePath());
+                    intent.putExtra(PdfViewerActivity.EXTRA_PDF_TITLE, item.getTitle());
+                    // Start the PDF viewer activity
+                    startActivity(intent);
+                } else {
+                    // Show error if file could not be loaded
+                    Toast.makeText(MainActivity.this, "Failed to load document", Toast.LENGTH_SHORT).show();
+                }
+            });
         });
     }
 }
