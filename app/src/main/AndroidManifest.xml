@@ -7,7 +7,7 @@
         android:supportsRtl="true">
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.bookreader.feature.library.ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,7 +17,7 @@
 
         <!-- PDF Viewer Activity for displaying PDF documents -->
         <activity
-            android:name=".PdfViewerActivity"
+            android:name="com.example.bookreader.feature.library.ui.PdfViewerActivity"
             android:exported="false" />
 
     </application>

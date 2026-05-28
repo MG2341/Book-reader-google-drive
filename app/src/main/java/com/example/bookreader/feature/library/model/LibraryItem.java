@@ -1,4 +1,4 @@
-package com.example.bookreader.library.data.model;
+package com.example.bookreader.feature.library.model;
 
 import java.time.Instant;  // Java 8 Date/Time API - represents an immutable moment in time on the timeline (used for lastReadAt)
 

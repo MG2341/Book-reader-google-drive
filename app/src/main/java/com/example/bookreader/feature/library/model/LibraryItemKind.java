@@ -1,4 +1,4 @@
-package com.example.bookreader.library.data.model;
+package com.example.bookreader.feature.library.model;
 
 public enum LibraryItemKind {
     Collection,

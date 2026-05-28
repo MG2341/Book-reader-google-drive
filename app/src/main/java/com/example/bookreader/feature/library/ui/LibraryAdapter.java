@@ -1,4 +1,4 @@
-package com.example.bookreader.library.ui;
+package com.example.bookreader.feature.library.ui;
 
 import android.view.LayoutInflater;                  // Android Framework - converts XML layout files into View objects
 import android.view.View;                            // Android Framework - base class for all UI widgets (used for visibility control)
@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;                  // Androidx - marks paramet
 import androidx.recyclerview.widget.RecyclerView;    // Android Jetpack - efficient list view that recycles items
 
 import com.example.bookreader.R;                             // Android Resource binding - generated class with references to layout/drawable resources
-import com.example.bookreader.library.data.model.LibraryItem;  // Domain model for a library item
+import com.example.bookreader.feature.library.model.LibraryItem;  // Domain model for a library item
 
 import java.util.List;                               // Java Collections - interface for ordered collections
 

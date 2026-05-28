@@ -1,10 +1,11 @@
-package com.example.bookreader;
+package com.example.bookreader.feature.library.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.bookreader.R;
 import com.github.barteksc.pdfviewer.PDFView;
 import java.io.File;
 

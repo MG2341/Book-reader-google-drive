@@ -1,4 +1,4 @@
-package com.example.bookreader.library.ui;
+package com.example.bookreader.feature.library.ui;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;

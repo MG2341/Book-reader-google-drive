@@ -1,6 +1,7 @@
-package com.example.bookreader.library.ui.state;
+package com.example.bookreader.feature.library.ui.state;
 
-import com.example.bookreader.library.data.model.LibraryItem;  // Domain model for a library item
+import com.example.bookreader.feature.library.model.Breadcrumb;  // Navigation breadcrumb model
+import com.example.bookreader.feature.library.model.LibraryItem;  // Domain model for a library item
 import java.util.List;                                          // Core Collections interface - holds ordered list of items
 
 /**

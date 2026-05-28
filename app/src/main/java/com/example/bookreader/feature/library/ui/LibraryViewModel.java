@@ -1,14 +1,14 @@
-package com.example.bookreader.library.ui;
+package com.example.bookreader.feature.library.ui;
 
 import androidx.lifecycle.LiveData;                  // Android Jetpack - observable mutable state holder (survives configuration changes like device rotation)
 import androidx.lifecycle.MutableLiveData;           // Mutable subclass of LiveData - allows setting values from data layer
 import androidx.lifecycle.ViewModel;                 // Android Jetpack - base class that holds UI-related data that persists across configuration changes
 import androidx.lifecycle.ViewModelProvider;        // Factory pattern - creates ViewModel instances with custom constructors
 
-import com.example.bookreader.library.data.LibraryRepository;       // Data source abstraction interface
-import com.example.bookreader.library.data.model.LibraryItem;       // Domain model for a library item
-import com.example.bookreader.library.ui.state.Breadcrumb;          // Navigation breadcrumb model
-import com.example.bookreader.library.ui.state.LibraryUiState;      // Sealed class representing all possible UI states
+import com.example.bookreader.feature.library.data.LibraryRepository;       // Data source abstraction interface
+import com.example.bookreader.feature.library.model.Breadcrumb;              // Navigation breadcrumb model
+import com.example.bookreader.feature.library.model.LibraryItem;             // Domain model for a library item
+import com.example.bookreader.feature.library.ui.state.LibraryUiState;       // Sealed class representing all possible UI states
 
 import java.util.List;                                               // Core Collections interface - holds ordered list
 import java.util.concurrent.ExecutorService;                         // Java Concurrency - thread pool executor for background tasks

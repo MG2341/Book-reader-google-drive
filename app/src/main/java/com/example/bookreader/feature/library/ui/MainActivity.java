@@ -1,4 +1,4 @@
-package com.example.bookreader;
+package com.example.bookreader.feature.library.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,11 +12,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.bookreader.library.data.LibraryRepository;
-import com.example.bookreader.library.ui.BreadcrumbAdapter;
-import com.example.bookreader.library.ui.LibraryAdapter;
-import com.example.bookreader.library.ui.LibraryViewModel;
-import com.example.bookreader.library.ui.state.LibraryUiState;
+import com.example.bookreader.R;
+import com.example.bookreader.feature.library.data.FakeLibraryRepository;
+import com.example.bookreader.feature.library.data.LibraryRepository;
+import com.example.bookreader.feature.library.model.LibraryItem;
+import com.example.bookreader.feature.library.ui.state.LibraryUiState;
 
 import java.io.File;
 import java.util.concurrent.Executors;
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /** Open a document (PDF) in the PDF viewer activity */
-    private void openDocument(com.example.bookreader.library.data.model.LibraryItem item) {
+    private void openDocument(LibraryItem item) {
         Toast.makeText(this, "Opening: " + item.getTitle(), Toast.LENGTH_SHORT).show();
 
         Executors.newSingleThreadExecutor().execute(() -> {

@@ -1,6 +1,6 @@
-package com.example.bookreader.library.data.remote;
+package com.example.bookreader.feature.library.data.remote;
 
-import com.example.bookreader.library.ui.state.Breadcrumb;
+import com.example.bookreader.feature.library.model.Breadcrumb;
 
 import java.util.List;
 

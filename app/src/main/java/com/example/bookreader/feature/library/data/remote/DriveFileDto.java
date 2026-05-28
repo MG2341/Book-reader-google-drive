@@ -1,4 +1,4 @@
-package com.example.bookreader.library.data.remote;
+package com.example.bookreader.feature.library.data.remote;
 
 import java.time.Instant;
 

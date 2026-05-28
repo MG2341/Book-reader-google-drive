@@ -1,8 +1,7 @@
-package com.example.bookreader;
+package com.example.bookreader.feature.library.data;
 
-import com.example.bookreader.library.data.LibraryRepository;       // Interface for data source abstraction
-import com.example.bookreader.library.data.model.LibraryItem;       // Domain model for a library item
-import com.example.bookreader.library.ui.state.Breadcrumb;          // Navigation breadcrumb model
+import com.example.bookreader.feature.library.model.Breadcrumb;          // Navigation breadcrumb model
+import com.example.bookreader.feature.library.model.LibraryItem;         // Domain model for a library item
 
 import java.io.File;
 import java.time.Instant;                                            // Java 8 Date/Time API - represents a moment in time (used for lastReadAt timestamps)

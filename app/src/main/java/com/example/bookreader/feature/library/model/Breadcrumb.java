@@ -1,4 +1,4 @@
-package com.example.bookreader.library.ui.state;
+package com.example.bookreader.feature.library.model;
 
 /**
  * Navigation breadcrumb showing the folder hierarchy.

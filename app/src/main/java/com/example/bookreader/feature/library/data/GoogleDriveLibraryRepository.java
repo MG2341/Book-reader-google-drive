@@ -1,9 +1,9 @@
-package com.example.bookreader.library.data;
+package com.example.bookreader.feature.library.data;
 
-import com.example.bookreader.library.data.model.LibraryItem;           // Domain model for a library item
-import com.example.bookreader.library.data.remote.DriveFileDto;         // Google Drive API response DTO (Data Transfer Object)
-import com.example.bookreader.library.data.remote.GoogleDriveApi;       // Interface for Google Drive API calls
-import com.example.bookreader.library.ui.state.Breadcrumb;              // Navigation breadcrumb model
+import com.example.bookreader.feature.library.data.remote.DriveFileDto;         // Google Drive API response DTO (Data Transfer Object)
+import com.example.bookreader.feature.library.data.remote.GoogleDriveApi;       // Interface for Google Drive API calls
+import com.example.bookreader.feature.library.model.Breadcrumb;                 // Navigation breadcrumb model
+import com.example.bookreader.feature.library.model.LibraryItem;                // Domain model for a library item
 
 import java.util.ArrayList;                                              // Resizable array implementation (builds dynamic lists)
 import java.util.List;                                                   // Core Collections interface - ordered collection

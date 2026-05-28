@@ -1,0 +1,276 @@
+<mxfile host="draw.io" modified="2026-05-27T00:00:00.000Z" agent="GitHub Copilot" version="24.0.0" type="device">
+  <diagram id="architecture" name="Book Reader Architecture">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Title -->
+        <mxCell id="title" value="Book Reader - Google Drive (MVVM Architecture)" style="text;html=1;fontSize=20;fontStyle=1;alignment=center;fillColor=none;strokeColor=none" vertex="1" parent="1">
+          <mxGeometry x="400" y="10" width="600" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- PRESENTATION LAYER -->
+        <mxCell id="pres_layer" value="PRESENTATION LAYER" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#E8F4F8;strokeColor=#0066CC;strokeWidth=2;align=center" vertex="1" parent="1">
+          <mxGeometry x="50" y="60" width="200" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- MainActivity -->
+        <mxCell id="main_activity" value="MainActivity&#10;(Entry Point)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#B3E5FC;strokeColor=#01579B;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="50" y="110" width="140" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- PdfViewerActivity -->
+        <mxCell id="pdf_activity" value="PdfViewerActivity&#10;(PDF Display)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#B3E5FC;strokeColor=#01579B;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="230" y="110" width="140" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- UI Components -->
+        <mxCell id="ui_components" value="UI Components&#10;• LibraryAdapter&#10;• BreadcrumbAdapter&#10;• RecyclerView" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#B3E5FC;strokeColor=#01579B;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="410" y="110" width="140" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- UI State -->
+        <mxCell id="ui_state" value="UI State Models&#10;• LibraryUiState&#10;• Breadcrumb" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#B3E5FC;strokeColor=#01579B;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="590" y="110" width="140" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- VIEWMODEL LAYER -->
+        <mxCell id="vm_layer" value="VIEWMODEL LAYER" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;strokeWidth=2;align=center" vertex="1" parent="1">
+          <mxGeometry x="50" y="210" width="680" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- LibraryViewModel -->
+        <mxCell id="library_vm" value="LibraryViewModel&#10;• loadCollection(id)&#10;• onCollectionClicked()&#10;• uiState: LiveData&lt;LibraryUiState&gt;&#10;• Uses ExecutorService" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#E1BEE7;strokeColor=#4A148C;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="50" y="260" width="680" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- DATA/REPOSITORY LAYER -->
+        <mxCell id="data_layer" value="DATA/REPOSITORY LAYER" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#E8F5E9;strokeColor=#1B5E20;strokeWidth=2;align=center" vertex="1" parent="1">
+          <mxGeometry x="50" y="370" width="680" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- LibraryRepository (Interface) -->
+        <mxCell id="repo_interface" value="&lt;&lt;interface&gt;&gt;&#10;LibraryRepository&#10;+ browse(id)&#10;+ getItem(id)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#C8E6C9;strokeColor=#1B5E20;strokeWidth=2;dashed=1" vertex="1" parent="1">
+          <mxGeometry x="50" y="420" width="140" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- GoogleDriveLibraryRepository -->
+        <mxCell id="gdrive_repo" value="GoogleDriveLibraryRepository&#10;(Production)&#10;• Filters by MIME type&#10;• Uses GoogleDriveApi" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#A5D6A7;strokeColor=#1B5E20;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="220" y="420" width="150" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- FakeLibraryRepository -->
+        <mxCell id="fake_repo" value="FakeLibraryRepository&#10;(Test)&#10;• Hardcoded data&#10;• 300ms delay" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#A5D6A7;strokeColor=#1B5E20;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="410" y="420" width="150" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- GoogleDriveApi -->
+        <mxCell id="gdrive_api" value="GoogleDriveApi&#10;(Low-level API Client)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=10;fillColor=#A5D6A7;strokeColor=#1B5E20;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="600" y="420" width="130" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- DOMAIN/MODEL LAYER -->
+        <mxCell id="domain_layer" value="DOMAIN/MODEL LAYER" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#FFF3E0;strokeColor=#E65100;strokeWidth=2;align=center" vertex="1" parent="1">
+          <mxGeometry x="50" y="530" width="680" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- LibraryItem Model -->
+        <mxCell id="library_item" value="LibraryItem&#10;+ id: String&#10;+ title: String&#10;+ mimeType: String&#10;+ readingProgress: Int&#10;+ lastReadAt: Long" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFE0B2;strokeColor=#E65100;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="50" y="580" width="130" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- LibraryItemKind Enum -->
+        <mxCell id="item_kind" value="LibraryItemKind&#10;(Enum)&#10;+ Collection&#10;+ Document&#10;+ Unsupported" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFE0B2;strokeColor=#E65100;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="210" y="580" width="130" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- DriveMimeTypes Constants -->
+        <mxCell id="mime_types" value="DriveMimeTypes&#10;(Constants)&#10;+ PDF&#10;+ EPUB&#10;+ FOLDERS" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFE0B2;strokeColor=#E65100;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="370" y="580" width="130" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- DriveFileDto -->
+        <mxCell id="drive_dto" value="DriveFileDto&#10;(API Response)&#10;+ id&#10;+ name&#10;+ mimeType" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#FFE0B2;strokeColor=#E65100;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="530" y="580" width="130" height="90" as="geometry"/>
+        </mxCell>
+
+        <!-- External Dependencies -->
+        <mxCell id="ext_layer" value="EXTERNAL DEPENDENCIES" style="rounded=0;whiteSpace=wrap;html=1;fontSize=12;fontStyle=1;fillColor=#F3E5F5;strokeColor=#6A1B9A;strokeWidth=2;align=center" vertex="1" parent="1">
+          <mxGeometry x="50" y="700" width="680" height="30" as="geometry"/>
+        </mxCell>
+
+        <!-- Google Drive API Service -->
+        <mxCell id="google_api" value="Google Drive API" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fillColor=#E1BEE7;strokeColor=#4A148C;strokeWidth=2" vertex="1" parent="1">
+          <mxGeometry x="50" y="750" width="150" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Androidx Libraries -->
+        <mxCell id="androidx" value="AndroidX Libraries&#10;• Lifecycle (ViewModel, LiveData)&#10;• RecyclerView&#10;• AppCompat" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#E1BEE7;strokeColor=#4A148C;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="230" y="750" width="180" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- PDF Viewer Library -->
+        <mxCell id="pdf_lib" value="Android PDF Viewer&#10;(v3.2.0-beta.3)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#E1BEE7;strokeColor=#4A148C;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="440" y="750" width="150" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- Material Design -->
+        <mxCell id="material" value="Material Design&#10;Components" style="rounded=1;whiteSpace=wrap;html=1;fontSize=9;fillColor=#E1BEE7;strokeColor=#4A148C;strokeWidth=1" vertex="1" parent="1">
+          <mxGeometry x="620" y="750" width="110" height="50" as="geometry"/>
+        </mxCell>
+
+        <!-- CONNECTIONS / DATA FLOW -->
+
+        <!-- MainActivity -> LibraryViewModel -->
+        <mxCell id="conn1" value="observes uiState" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;strokeColor=#0066CC;endArrow=open;endFill=0;endSize=6" edge="1" parent="1" source="main_activity" target="library_vm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="120" y="180"/>
+              <mxPoint x="120" y="250"/>
+              <mxPoint x="150" y="250"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- PdfViewerActivity -> UI Components -->
+        <mxCell id="conn2" value="uses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;strokeColor=#0066CC;endArrow=open;endFill=0;endSize=6" edge="1" parent="1" source="pdf_activity" target="ui_components">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="155"/>
+              <mxPoint x="350" y="155"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- UI Components -> UI State -->
+        <mxCell id="conn3" value="display" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;strokeColor=#0066CC;endArrow=open;endFill=0;endSize=6" edge="1" parent="1" source="ui_components" target="ui_state">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="155"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- LibraryViewModel -> LibraryRepository -->
+        <mxCell id="conn4" value="uses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;strokeColor=#6A1B9A;endArrow=open;endFill=0;endSize=6" edge="1" parent="1" source="library_vm" target="repo_interface">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="340"/>
+              <mxPoint x="120" y="360"/>
+              <mxPoint x="120" y="410"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- LibraryRepository -> Implementations -->
+        <mxCell id="conn5" value="implements" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;strokeColor=#1B5E20;endArrow=open;endFill=0;endSize=6;dashed=1" edge="1" parent="1" source="repo_interface" target="gdrive_repo">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="460"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="conn6" value="implements" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;strokeColor=#1B5E20;endArrow=open;endFill=0;endSize=6;dashed=1" edge="1" parent="1" source="repo_interface" target="fake_repo">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="190" y="460"/>
+              <mxPoint x="485" y="460"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- GoogleDriveLibraryRepository -> GoogleDriveApi -->
+        <mxCell id="conn7" value="calls" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;strokeColor=#1B5E20;endArrow=open;endFill=0;endSize=6" edge="1" parent="1" source="gdrive_repo" target="gdrive_api">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="370" y="460"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Repositories -> Models -->
+        <mxCell id="conn8" value="returns" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;strokeColor=#E65100;endArrow=open;endFill=0;endSize=6" edge="1" parent="1" source="gdrive_repo" target="library_item">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="295" y="510"/>
+              <mxPoint x="115" y="570"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="conn9" value="returns" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;strokeColor=#E65100;endArrow=open;endFill=0;endSize=6" edge="1" parent="1" source="gdrive_api" target="drive_dto">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="665" y="510"/>
+              <mxPoint x="595" y="570"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- GoogleDriveApi -> Google Drive API Service -->
+        <mxCell id="conn10" value="calls" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;strokeColor=#6A1B9A;endArrow=open;endFill=0;endSize=6" edge="1" parent="1" source="gdrive_api" target="google_api">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="665" y="510"/>
+              <mxPoint x="125" y="730"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- MainActivity -> AndroidX -->
+        <mxCell id="conn11" value="uses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;strokeColor=#6A1B9A;endArrow=open;endFill=0;endSize=6" edge="1" parent="1" source="main_activity" target="androidx">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="120" y="180"/>
+              <mxPoint x="120" y="720"/>
+              <mxPoint x="320" y="720"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- PdfViewerActivity -> PDF Library -->
+        <mxCell id="conn12" value="uses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;strokeColor=#6A1B9A;endArrow=open;endFill=0;endSize=6" edge="1" parent="1" source="pdf_activity" target="pdf_lib">
+          <mxGeometry relative="1" as="position">
+            <Array as="points">
+              <mxPoint x="300" y="180"/>
+              <mxPoint x="515" y="720"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- UI Components -> Material -->
+        <mxCell id="conn13" value="uses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=9;strokeColor=#6A1B9A;endArrow=open;endFill=0;endSize=6" edge="1" parent="1" source="ui_components" target="material">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="480" y="180"/>
+              <mxPoint x="675" y="720"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend_title" value="Legend:" style="text;html=1;fontSize=11;fontStyle=1;alignment=left;fillColor=none;strokeColor=none" vertex="1" parent="1">
+          <mxGeometry x="780" y="60" width="100" height="20" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="legend1" value="→ One-directional dependency" style="text;html=1;fontSize=9;alignment=left;fillColor=none;strokeColor=none" vertex="1" parent="1">
+          <mxGeometry x="780" y="85" width="200" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="legend2" value="⇢ Interface implementation" style="text;html=1;fontSize=9;alignment=left;fillColor=none;strokeColor=none" vertex="1" parent="1">
+          <mxGeometry x="780" y="105" width="200" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="legend3" value="Async operations via ExecutorService" style="text;html=1;fontSize=9;alignment=left;fillColor=none;strokeColor=none" vertex="1" parent="1">
+          <mxGeometry x="780" y="125" width="200" height="15" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="legend4" value="Data binding: LiveData observable pattern" style="text;html=1;fontSize=9;alignment=left;fillColor=none;strokeColor=none" vertex="1" parent="1">
+          <mxGeometry x="780" y="145" width="200" height="15" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
